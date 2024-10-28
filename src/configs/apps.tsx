@@ -20,27 +20,6 @@ const apps: AppsData[] = [
     content: <Bear />
   },
   {
-    id: "typora",
-    title: "Typora",
-    desktop: true,
-    width: 600,
-    height: 580,
-    y: -20,
-    img: "img/icons/typora.png",
-    content: <Typora />
-  },
-  {
-    id: "safari",
-    title: "Safari",
-    desktop: true,
-    width: 1024,
-    minWidth: 375,
-    minHeight: 200,
-    x: -20,
-    img: "img/icons/safari.png",
-    content: <Safari />
-  },
-  {
     id: "vscode",
     title: "VSCode",
     desktop: true,
@@ -77,7 +56,7 @@ const apps: AppsData[] = [
     title: "Github",
     desktop: false,
     img: "img/icons/github.png",
-    link: "https://github.com/Renovamen/playground-macos"
+    link: "https://github.com/DavidMorgade"
   }
 ];
 

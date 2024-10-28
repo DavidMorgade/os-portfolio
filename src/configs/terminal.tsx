@@ -13,8 +13,8 @@ const terminal: TerminalData[] = [
         content: (
           <div className="py-1">
             <div>
-              Hi, this is Xiaohan Zou. I am a PhD student at the Computer Science and
-              Engineering department of Pennsylvania State University.
+              Hello, my name's David Morgade, I'm a software developer from Spain. I'm
+              currently working as a Microcomputer technician at the Spanish Navy.
             </div>
           </div>
         )
@@ -23,14 +23,14 @@ const terminal: TerminalData[] = [
         id: "about-interests",
         title: "interests.txt",
         type: "file",
-        content: "Machine Learning / Computer Vision / Multimodal Learning"
+        content: "Full Stack Development / IA Development / Multimodal Learning"
       },
       {
         id: "about-who-cares",
         title: "who-cares.txt",
         type: "file",
         content:
-          "I'm looking for a research internship for Summer 2024. I'm open to collaboration on research projects."
+          "I'm loogin for a job as a software developer, if you are interested in my profile, please contact me."
       },
       {
         id: "about-contact",
@@ -42,65 +42,55 @@ const terminal: TerminalData[] = [
               Email:{" "}
               <a
                 className="text-blue-300"
-                href="mailto:renovamenzxh@gmail.com"
+                href="mailto:davidmorgadegil@gmail.com"
                 target="_blank"
                 rel="noreferrer"
               >
-                renovamenzxh@gmail.com
+                davidmorgadegil@gmail.com
               </a>
             </li>
             <li>
               Github:{" "}
               <a
                 className="text-blue-300"
-                href="https://github.com/Renovamen"
+                href="https://github.com/DavidMorgade"
                 target="_blank"
                 rel="noreferrer"
               >
-                @Renovamen
-              </a>
-            </li>
-            <li>
-              <a
-                className="text-blue-300"
-                href="https://scholar.google.com/citations?user=RuW6xgMAAAAJ"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google Scholar
+                @DavidMorgade
               </a>
             </li>
             <li>
               Linkedin:{" "}
               <a
                 className="text-blue-300"
-                href="https://www.linkedin.com/in/xiaohan-zou"
+                href="https://www.linkedin.com/in/DavidMorgade"
                 target="_blank"
                 rel="noreferrer"
               >
-                xiaohan-zou
+                David Morgade
               </a>
             </li>
             <li>
-              Personal Website:{" "}
+              Personal Blog:{" "}
               <a
                 className="text-blue-300"
-                href="https://zxh.me"
+                href="https://www.codigomorga.es/blog"
                 target="_blank"
                 rel="noreferrer"
               >
-                https://zxh.me
+                https://www.codigomorga.es/blog
               </a>
             </li>
             <li>
-              知乎:{" "}
+              X :{" "}
               <a
                 className="text-blue-300"
-                href="https://www.zhihu.com/people/chao-neng-gui-su"
+                href="https://x.com/MeSabeAgridulce"
                 target="_blank"
                 rel="noreferrer"
               >
-                @西伯利亚大恶龙
+                https://x.com/MeSabeAgridulce
               </a>
             </li>
           </ul>
@@ -110,7 +100,7 @@ const terminal: TerminalData[] = [
   },
   {
     id: "about-dream",
-    title: "my-dream.cpp",
+    title: "my-dream.c",
     type: "file",
     content: (
       <div className="py-1">
