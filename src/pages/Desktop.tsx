@@ -246,7 +246,6 @@ export default function Desktop(props: MacActions) {
       {/* Top Menu Bar */}
       <TopBar
         title={state.currentTitle}
-        setLogin={props.setLogin}
         shutMac={props.shutMac}
         sleepMac={props.sleepMac}
         restartMac={props.restartMac}

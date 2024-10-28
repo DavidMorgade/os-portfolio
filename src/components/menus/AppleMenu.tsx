@@ -1,7 +1,6 @@
 import React from "react";
 
 interface AppleMenuProps {
-  logout: () => void;
   shut: (e: React.MouseEvent<HTMLLIElement>) => void;
   restart: (e: React.MouseEvent<HTMLLIElement>) => void;
   sleep: (e: React.MouseEvent<HTMLLIElement>) => void;
@@ -10,7 +9,6 @@ interface AppleMenuProps {
 }
 
 export default function AppleMenu({
-  logout,
   shut,
   restart,
   sleep,
@@ -40,10 +38,6 @@ export default function AppleMenu({
         <MenuItem onClick={sleep}>Sleep</MenuItem>
         <MenuItem onClick={restart}>Restart...</MenuItem>
         <MenuItem onClick={shut}>Shut Down...</MenuItem>
-      </MenuItemGroup>
-      <MenuItemGroup border={false}>
-        <MenuItem onClick={logout}>Lock Screen</MenuItem>
-        <MenuItem onClick={logout}>Log Out Xiaohan Zou...</MenuItem>
       </MenuItemGroup>
     </div>
   );
