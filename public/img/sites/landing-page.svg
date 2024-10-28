@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512" xml:space="preserve">
+<path style="fill:#008AC7;" d="M203.217,377.402H44.866V150.433H256h211.134v226.969H203.217z M203.217,292.948h131.959V192.66
+	H203.217V292.948z"/>
+<rect x="203.217" y="192.66" style="fill:#7E8488;" width="131.959" height="100.289"/>
+<polygon style="fill:#36C63F;" points="467.134,435.464 256,435.464 44.866,435.464 44.866,377.402 203.217,377.402 
+	467.134,377.402 "/>
+<polygon style="fill:#E7ECED;" points="504.082,113.485 504.082,472.412 256,472.412 256,435.464 467.134,435.464 467.134,150.433 
+	256,150.433 256,113.485 "/>
+<rect x="256" y="39.588" style="fill:#FFD311;" width="248.082" height="73.897"/>
+<rect x="7.918" y="39.588" style="fill:#FDB51E;" width="248.082" height="73.897"/>
+<polygon style="fill:#CCD1D2;" points="44.866,435.464 256,435.464 256,472.412 7.918,472.412 7.918,113.485 256,113.485 
+	256,150.433 44.866,150.433 "/>
+<path style="fill:#0074B5;" d="M228.9,292.948h-25.683v-45.937c-13.927-30.087-23.617-62.521-28.327-96.578H44.866v226.969h158.351
+	h105.438C277.519,354.009,250.527,325.425,228.9,292.948z"/>
+<rect x="203.217" y="192.66" style="fill:#72787B;" width="131.959" height="47.505"/>
+<rect x="44.866" y="377.402" style="fill:#00AB4E;" width="422.268" height="31.67"/>
+<g>
+	<rect x="39.588" y="68.619" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="71.258" y="68.619" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="451.299" y="68.619" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+</g>
+<path d="M0,31.67v448.66h512V31.67H0z M496.165,47.505v58.062H15.835V47.505H496.165z M15.835,464.495V121.402h480.33v343.093
+	H15.835z"/>
+<path d="M36.948,443.381h438.103V142.515H36.948V443.381z M52.784,427.546V385.32h406.433v42.227H52.784z M459.217,158.351v211.134
+	H211.134v-68.619h131.959V184.742H195.299v184.742H52.784V158.351H459.217z M211.134,285.031v-84.454h116.124v84.454H211.134z"/>
+<g>
+	<rect x="266.557" y="221.691" style="fill:#FFFFFF;" width="36.948" height="15.835"/>
+	<rect x="234.887" y="248.082" style="fill:#FFFFFF;" width="68.619" height="15.835"/>
+	<rect x="71.258" y="179.464" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="71.258" y="211.134" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="102.928" y="179.464" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="419.629" y="332.536" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="419.629" y="300.866" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+	<rect x="387.959" y="332.536" style="fill:#FFFFFF;" width="21.113" height="15.835"/>
+</g>
+</svg>

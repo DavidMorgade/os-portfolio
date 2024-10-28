@@ -1,7 +1,7 @@
 # Github Stats
 
-My GitHub stats (powered by [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)):
+My GitHub stats (powered by [github-readme-stats](httgs://github.com/anuraghazra/github-readme-stats)):
 
-[![github stats](https://github-readme-stats.vercel.app/api?username=Renovamen&show_icons=true&hide_title=true&hide_border=true)](https://zxh.me)
+[![github stats](https://readme-stats-selfhosted-ozp48m5un-davidmorgades-projects.vercel.app/api?username=DavidMorgade&theme=dark&show_icons=true&count_private=true)](https://github.com/DavidMorgade)
 
-[![top langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Renovamen&layout=compact&hide_border=true)](https://zxh.me)
+[![top langs](https://readme-stats-selfhosted-ozp48m5un-davidmorgades-projects.vercel.app/api/top-langs/?username=DavidMorgade&theme=dark&hide_border=false&no-bg=true&no-frame=true&langs_count=7&hide=powershell,css,html,shell,scss,mdx)](https://github.com/DavidMorgade)

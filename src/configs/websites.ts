@@ -2,163 +2,142 @@ import type { WebsitesData } from "~/types";
 
 const websites: WebsitesData = {
   favorites: {
-    title: "SNS Links",
+    title: "Favorites",
     sites: [
       {
         id: "my-blog",
-        title: "Website",
-        img: "https://zxh.me/img/avatar.jpg",
-        link: "https://zxh.me/",
+        title: "Blog",
+        img: "https://codigomorga.es/blog/_astro/logoCM.BvSGyUfu_19IS61.svg",
+        link: "https://codigomorga.es/blog",
         inner: true
       },
       {
         id: "my-github",
         title: "Github",
         img: "img/sites/github.svg",
-        link: "https://github.com/Renovamen"
+        link: "https://github.com/DavidMorgade"
       },
       {
         id: "my-linkedin",
         title: "Linkedin",
         img: "img/sites/linkedin.svg",
-        link: "https://www.linkedin.com/in/xiaohan-zou"
-      },
-      {
-        id: "my-google-scholar",
-        title: "Scholar",
-        img: "img/sites/google-scholar.svg",
-        link: "https://scholar.google.com/citations?user=RuW6xgMAAAAJ"
-      },
-      {
-        id: "my-zhihu",
-        title: "知乎",
-        img: "img/sites/zhihu.jpeg",
-        link: "https://www.zhihu.com/people/chao-neng-gui-su"
+        link: "https://www.linkedin.com/in/DavidMorgade"
       },
       {
         id: "my-twitter",
-        title: "Twitter",
+        title: "X",
         img: "img/sites/twitter.svg",
-        link: "https://www.twitter.com/renovamen_zxh"
+        link: "https://www.x.com/MeSabeAgridulce"
       },
       {
         id: "my-email",
         title: "Email",
         img: "img/sites/gmail.svg",
-        link: "mailto:renovamenzxh@gmail.com"
+        link: "mailto:davidmorgadegil@gmail.com"
       }
     ]
   },
   freq: {
-    title: "Frequently Visited",
+    title: "Frontend Projects",
     sites: [
       {
-        id: "github",
-        title: "Github",
-        img: "img/sites/github.svg",
-        link: "https://github.com/"
-      },
-      {
-        id: "arxiv",
-        title: "arXiv",
-        img: "img/sites/arxiv.png",
-        link: "https://arxiv.org/"
-      },
-      {
-        id: "twitter",
-        title: "Twitter",
-        img: "img/sites/twitter.svg",
-        link: "https://www.twitter.com/"
-      },
-      {
-        id: "dribbble",
-        title: "Dribbble",
-        img: "img/sites/dribbble.svg",
-        link: "https://dribbble.com/"
-      },
-      {
-        id: "pinterest",
-        title: "Pinterest",
-        img: "img/sites/pinterest.svg",
-        link: "https://www.pinterest.com/"
-      },
-      {
-        id: "art-station",
-        title: "ArtStation",
-        img: "img/sites/artstation.svg",
-        link: "https://www.artstation.com//"
-      },
-      {
-        id: "bilibili",
-        title: "Bilibili",
-        img: "img/sites/bilibili.svg",
-        link: "https://www.bilibili.com/"
-      },
-      {
-        id: "zhihu",
-        title: "知乎",
-        img: "img/sites/zhihu.jpeg",
-        link: "https://www.zhihu.com/"
-      },
-      {
-        id: "leetcode",
-        title: "LeetCode",
-        img: "img/sites/leetcode.svg",
-        link: "https://leetcode.com/"
-      },
-      {
-        id: "reddit",
-        title: "Reddit",
-        img: "img/sites/reddit.svg",
-        link: "https://www.reddit.com/"
-      },
-      {
-        id: "hacker-news",
-        title: "Hacker News",
-        img: "img/sites/hacker.svg",
-        link: "https://news.ycombinator.com/"
-      },
-      {
-        id: "v2ex",
-        title: "V2EX",
-        img: "https://www.v2ex.com/apple-touch-icon.png",
-        link: "https://www.v2ex.com/"
-      },
-      {
-        id: "aideadline",
-        title: "AI Deadlines",
-        img: "https://aideadlin.es/static/img/favicon.png",
-        link: "https://aideadlin.es/",
+        id: "qr-generator",
+        title: "QR Code",
+        img: "img/sites/qr-code.svg",
+        link: "https://triple-themed-qr-component.vercel.app/",
         inner: true
       },
       {
-        id: "oh-my-cv",
-        title: "OhMyCV",
-        img: "https://ohmycv.app/apple-touch-icon.png",
-        link: "https://ohmycv.app/"
+        id: "space-tourism",
+        title: "Space App",
+        img: "img/sites/space-tourism.svg",
+        link: "https://space-tourism-page-rho.vercel.app/",
+        inner: true
       },
       {
-        id: "steam",
-        title: "Steam",
-        img: "img/sites/steam.svg",
-        link: "https://store.steampowered.com/"
+        id: "design-portfolio",
+        title: "UI Portfolio",
+        img: "img/sites/design-portfolio.svg",
+        link: "https://single-page-design-portfolio-challenge.vercel.app/",
+        inner: true
       },
       {
-        id: "nazo",
-        title: "Nazo",
-        link: "https://nazo.one-story.cn"
+        id: "creative-agency",
+        title: "Creative UI",
+        img: "img/sites/creative-agency.svg",
+        link: "https://creative-agency-single-page.vercel.app/",
+        inner: true
       },
       {
-        id: "svgomg",
-        title: "SVGOMG",
-        img: "https://jakearchibald.github.io/svgomg/imgs/icon.png",
-        link: "https://jakearchibald.github.io/svgomg/"
+        id: "dev-finder",
+        title: "Dev Finder",
+        img: "img/sites/github.svg",
+        link: "https://github-user-search-app-eta.vercel.app/",
+        inner: true
       },
       {
-        id: "tiny-png",
-        title: "Tiny PNG",
-        img: "https://tinypng.com/images/panda-chewing-2x.png",
-        link: "https://tinypng.com/"
+        id: "password-generator",
+        title: "Pass Gen",
+        img: "img/sites/password-generator.svg",
+        link: "https://password-generator-lovat-gamma.vercel.app/",
+        inner: true
+      },
+      {
+        id: "rock-paper-scissors",
+        title: "Game",
+        img: "img/sites/rock-paper-scissors.svg",
+        link: "https://rock-paper-scissors-fronendmentor.netlify.app/",
+        inner: true
+      },
+      {
+        id: "nft-card",
+        title: "NFT Card",
+        img: "img/sites/nft-card.svg",
+        link: "https://nft-component-morgade.netlify.app/",
+        inner: true
+      },
+      {
+        id: "landing-page",
+        title: "Landing",
+        img: "img/sites/landing-page.svg",
+        link: "https://base-apparel-comingsoon-site.netlify.app/",
+        inner: true
+      },
+      {
+        id: "tip-calculator",
+        title: "Tip Calc",
+        img: "img/sites/tip-calculator.svg",
+        link: "https://frondendmentor-tip-calculator-davidm.netlify.app/",
+        inner: true
+      },
+      {
+        id: "snap-page",
+        title: "Snap Page",
+        img: "img/sites/snap-page.svg",
+        link: "https://intro-section-dropdown-one.vercel.app/",
+        inner: true
+      },
+      {
+        id: "old-portfolio",
+        title: "Old Site",
+        img: "img/sites/old-portfolio.svg",
+        link: "https://full-stack-porfolio-challenge-git-main-davidmorgade.vercel.app/",
+        inner: true
+      },
+      {
+        id: "dummy-form",
+        title: "TS Form",
+        img: "img/sites/dummy-form.svg",
+        link: "https://typescript-dummyform.netlify.app/",
+        inner: true
+      },
+
+      {
+        id: "card-details",
+        title: "Dummy Card",
+        img: "img/sites/card-details.svg",
+        link: "https://interactive-card-details-nu.vercel.app/",
+        inner: true
       }
     ]
   }
