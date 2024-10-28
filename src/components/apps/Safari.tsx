@@ -32,7 +32,7 @@ const NavSection = ({ width, section, setGoURL }: NavSectionProps) => {
       <div className={`mt-3 grid grid-flow-row gap-2 ${grid}`}>
         {section.sites.map((site: SiteData) => (
           <div key={`safari-nav-${site.id}`} className="h-28 flex flex-col">
-            <div className="size-16 mx-auto rounded-md overflow-hidden">
+            <div className="size-16 mx-auto rounded-md overflow-hidden hover:cursor-pointer hover:scale-110 transition-all">
               {site.img ? (
                 <img
                   src={site.img}

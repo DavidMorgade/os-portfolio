@@ -2,7 +2,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 
 import Desktop from "~/pages/Desktop";
-import Login from "~/pages/Login";
 import Boot from "~/pages/Boot";
 
 import "@unocss/reset/tailwind.css";

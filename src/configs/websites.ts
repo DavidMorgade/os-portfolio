@@ -134,9 +134,17 @@ const websites: WebsitesData = {
 
       {
         id: "card-details",
-        title: "Dummy Card",
+        title: "Dummy CC",
         img: "img/sites/card-details.svg",
         link: "https://interactive-card-details-nu.vercel.app/",
+        inner: true
+      },
+
+      {
+        id: "time-dashbaord",
+        title: "Dashboard",
+        img: "img/sites/time-dashboard.svg",
+        link: "https://frontendmentor-timetrackingdashboard.netlify.app/",
         inner: true
       }
     ]

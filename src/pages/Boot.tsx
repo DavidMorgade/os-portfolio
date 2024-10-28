@@ -36,7 +36,7 @@ export default function Boot({ restart, sleep, setBooting }: BootProps) {
 
   return (
     <div className="size-full bg-black flex-center" onClick={handleClick}>
-      <div className="i-fa-brands:apple text-white -mt-4 size-20 sm:size-24" />
+      <div className="i-fa-brands:apple text-white -mt-4 size-20 sm:size-24 cursor-pointer hover:transform-scale-110 transition-transform" />
       {loading && (
         <div
           className="absolute top-1/2 inset-x-0 w-56 h-1 sm:h-1.5 bg-gray-500 rounded overflow-hidden"
@@ -57,6 +57,7 @@ export default function Boot({ restart, sleep, setBooting }: BootProps) {
           text="sm gray-200 center"
         >
           Click to {sleep ? "wake up" : "boot"}
+          <span className="block mt-4"> David Morgade's Portfolio</span>
         </div>
       )}
     </div>
