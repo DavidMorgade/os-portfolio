@@ -90,9 +90,8 @@ const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficP
         <span className={`icon i-fe:minus text-[10px] ${max ? "invisible" : ""}`} />
       </button>
       <button
-        className={`window-btn ${
-          disableMax ? "bg-c-400" : "bg-green-500 dark:bg-green-400"
-        }`}
+        className={`window-btn ${disableMax ? "bg-c-400" : "bg-green-500 dark:bg-green-400"
+          }`}
         onClick={() => setMax(id)}
         onTouchEnd={() => setMax(id)}
         disabled={disableMax}
@@ -151,21 +150,21 @@ const Window = (props: WindowProps) => {
         x: props.max
           ? winWidth // because of boundary
           : Math.min(
-              // "winWidth * 2" because of the boundary for windows
-              winWidth * 2 - minMarginX,
-              Math.max(
-                // "+ winWidth" because we add a boundary for windows
-                winWidth - state.width + minMarginX,
-                state.x
-              )
-            ),
+            // "winWidth * 2" because of the boundary for windows
+            winWidth * 2 - minMarginX,
+            Math.max(
+              // "+ winWidth" because we add a boundary for windows
+              winWidth - state.width + minMarginX,
+              state.x
+            )
+          ),
         y: props.max
           ? -minMarginY // because of boundary
           : Math.min(
-              // "- minMarginY" because of the boundary for windows
-              winHeight - minMarginY - (dockSize + 15 + minMarginY),
-              Math.max(0, state.y)
-            )
+            // "- minMarginY" because of the boundary for windows
+            winHeight - minMarginY - (dockSize + 15 + minMarginY),
+            Math.max(0, state.y)
+          )
       }}
       onDragStop={(e, d) => {
         setState({ ...state, x: d.x, y: d.y });

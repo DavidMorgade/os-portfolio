@@ -13,7 +13,7 @@ const apps: AppsData[] = [
     title: "Bear",
     desktop: true,
     width: 860,
-    height: 500,
+    height: 600,
     show: true,
     y: -40,
     img: "img/icons/bear.png",

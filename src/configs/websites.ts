@@ -146,6 +146,13 @@ const websites: WebsitesData = {
         img: "img/sites/time-dashboard.svg",
         link: "https://frontendmentor-timetrackingdashboard.netlify.app/",
         inner: true
+      },
+      {
+        id: "singetec",
+        title: "Singetec",
+        img: "img/sites/singetec.svg",
+        link: "https://web-empresa-simixm-12.vercel.app/",
+        inner: true
       }
     ]
   }
