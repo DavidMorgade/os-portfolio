@@ -2,6 +2,31 @@
   @apply text-red-500 dark:text-red-400;
 }
 
+@media (max-width: 768px) {
+  .bear {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .bear .sidebar {
+    grid-column: 1 / 2;
+    width: 100%;
+  }
+
+  .bear .middlebar {
+    grid-column: 2 / 4;
+    width: 100%;
+  }
+
+
+  .bear .content {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+  }
+
+}
+
 .bear .markdown h1,
 .bear .markdown h2,
 .bear .markdown h3,
@@ -63,9 +88,9 @@
   @apply mt-6;
 }
 
-.bear .markdown h2 + p,
-.bear .markdown h3 + p,
-.bear .markdown h4 + p {
+.bear .markdown h2+p,
+.bear .markdown h3+p,
+.bear .markdown h4+p {
   @apply mt-4;
 }
 
@@ -78,7 +103,7 @@
   @apply list-disc;
 }
 
-.bear .markdown ul > li::marker {
+.bear .markdown ul>li::marker {
   @apply text-red-500 dark:text-red-400;
 }
 
@@ -107,7 +132,7 @@
 }
 
 .bear .markdown .token {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 .bear .markdown img {
