@@ -23,9 +23,7 @@ const TopBarItem = forwardRef(
     return (
       <div
         ref={ref}
-        className={`hstack space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${
-          props.className || ""
-        }`}
+        className={`hstack space-x-1 h-6 px-1 cursor-default rounded ${hide} ${bg} ${props.className || ""}`}
         onClick={props.onClick}
         onMouseEnter={props.onMouseEnter}
       >
@@ -140,10 +138,6 @@ const TopBar = (props: TopBarProps) => {
     });
   };
 
-  const logout = (): void => {
-    controls.pause();
-  };
-
   const shut = (e: React.MouseEvent<HTMLLIElement>): void => {
     controls.pause();
     props.shutMac(e);
@@ -161,9 +155,7 @@ const TopBar = (props: TopBarProps) => {
 
   return (
     <div
-      className={`w-full h-8 px-2 fixed top-0 hstack justify-between ${
-        props.hide ? "z-0" : "z-20"
-      } text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition`}
+      className={`w-full h-8 px-2 fixed top-0 hstack justify-between ${props.hide ? "z-0" : "z-20"} text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition`}
     >
       <div className="hstack space-x-1">
         <TopBarItem

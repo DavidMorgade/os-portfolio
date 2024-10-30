@@ -72,16 +72,14 @@ const Sidebar = ({ state, onTake, onSave, onSelect }: SidebarProps) => {
           <span>{state.curImage ? "Retake" : "Take a Picture"}</span>
         </button>
         <button
-          className={`flex-center space-x-1 w-full py-1 text-white rounded-md bg-stone-500 ${
-            !state.canSave && "opacity-60 cursor-not-allowed"
-          }`}
+          className={`flex-center space-x-1 w-full py-1 text-white rounded-md bg-stone-500 ${!state.canSave && "opacity-60 cursor-not-allowed"
+            }`}
           disabled={!state.canSave}
           onClick={onSave}
         >
           <span
-            className={`${
-              state.canSave ? "i-mdi:content-save" : "i-mdi:content-save-off"
-            } text-base`}
+            className={`${state.canSave ? "i-mdi:content-save" : "i-mdi:content-save-off"
+              } text-base`}
           />
           <span>Save Picture</span>
         </button>
