@@ -225,7 +225,7 @@ export default function Desktop(props: MacActions) {
         };
 
         return (
-          <AppWindow key={`desktop-app-${app.id}`} {...props}>
+          <AppWindow key={`desktop-app-${app.id}`} {...props} mobile="full-size-mobile">
             {app.content}
           </AppWindow>
         );

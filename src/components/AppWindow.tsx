@@ -55,6 +55,7 @@ interface WindowProps extends TrafficProps {
   z: number;
   focus: (id: string) => void;
   children: React.ReactNode;
+  mobile?: string;
 }
 
 interface WindowState {
@@ -90,8 +91,7 @@ const TrafficLights = ({ id, close, aspectRatio, max, setMax, setMin }: TrafficP
         <span className={`icon i-fe:minus text-[10px] ${max ? "invisible" : ""}`} />
       </button>
       <button
-        className={`window-btn ${disableMax ? "bg-c-400" : "bg-green-500 dark:bg-green-400"
-          }`}
+        className={`window-btn ${disableMax ? "bg-c-400" : "bg-green-500 dark:bg-green-400"}`}
         onClick={() => setMax(id)}
         onTouchEnd={() => setMax(id)}
         disabled={disableMax}
@@ -186,7 +186,7 @@ const Window = (props: WindowProps) => {
       lockAspectRatioExtraHeight={props.aspectRatio ? appBarHeight : undefined}
       style={{ zIndex: props.z }}
       onMouseDown={() => props.focus(props.id)}
-      className={`overflow-hidden ${round} ${border} shadow-lg shadow-black/30 ${minimized}`}
+      className={`overflow-hidden ${round} ${border} shadow-lg shadow-black/30 ${minimized} ${props.mobile}`}
       id={`window-${props.id}`}
     >
       <div
@@ -207,5 +207,4 @@ const Window = (props: WindowProps) => {
     </Rnd>
   );
 };
-
 export default Window;
