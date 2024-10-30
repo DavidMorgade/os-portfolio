@@ -96,8 +96,8 @@ export default function DockItem({
   return (
     <li
       id={`dock-${id}`}
-      onClick={desktop || id === "launchpad" ? () => openApp(id) : () => {}}
-      className="relative flex flex-col justify-end mb-1 hover:cursor-pointer"
+      onClick={desktop || id === "launchpad" ? () => openApp(id) : () => { }}
+      className="relative flex flex-col justify-end mb-1 hover:cursor-pointer "
     >
       <p
         className="tooltip absolute inset-x-0 mx-auto w-max rounded-md bg-c-300/80"
