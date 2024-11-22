@@ -15,7 +15,7 @@ Contact me by:
 - Email: [davidmorgadegil@gmail.com](mailto:davidmorgadegil@gmail.com)
 - Github: [@DavidMorgade](https://github.com/DavidMorgade)
 - Linkedin: [David Morgade](https://www.linkedin.com/in/DavidMorgade)
-- Personal Blog: [codigomorga.es/blog](https://codigmorga.es/blog)
+- Personal Blog: [codigomorga.es/blog](https://codigomorga.es/blog)
 
 
 ## Résumé
