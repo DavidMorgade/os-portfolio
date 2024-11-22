@@ -10,8 +10,8 @@ import "katex/dist/katex.min.css";
 import "~/styles/index.css";
 
 export default function App() {
-  const [booting, setBooting] = useState<boolean>(false);
-  const [restart, setRestart] = useState<boolean>(false);
+  const [booting, setBooting] = useState<boolean>(true);
+  const [restart, setRestart] = useState<boolean>(true);
   const [sleep, setSleep] = useState<boolean>(false);
 
   const shutMac = (e: React.MouseEvent): void => {
@@ -47,6 +47,8 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>
   </React.StrictMode>
 );

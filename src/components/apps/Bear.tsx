@@ -5,7 +5,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeExternalLinks from "rehype-external-links";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula, prism } from "react-syntax-highlighter/dist/esm/styles/prism";
-import bear from "~/configs/bear";
+import { bearEN, bearES } from "~/configs/bear";
 import type { BearMdData } from "~/types";
 
 interface ContentProps {
@@ -58,6 +58,11 @@ const Highlighter = (dark: boolean): any => {
 };
 
 const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
+  const { language } = useLanguageContext();
+  let bear = bearEN;
+  if (language === "es") {
+    bear = bearES;
+  }
   return (
     <div text-white>
       <div className="h-12 pr-3 hstack space-x-3 justify-end">
@@ -68,8 +73,9 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
         {bear.map((item, index) => (
           <li
             key={`bear-sidebar-${item.id}`}
-            className={`pl-6 h-8 hstack cursor-default ${cur === index ? "bg-red-500" : "bg-transparent"
-              } ${cur === index ? "" : "hover:bg-gray-600"}`}
+            className={`pl-6 h-8 hstack cursor-default ${
+              cur === index ? "bg-red-500" : "bg-transparent"
+            } ${cur === index ? "" : "hover:bg-gray-600"}`}
             onClick={() => setMidBar(item.md, index)}
           >
             <span className={item.icon} />
@@ -87,10 +93,11 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
       {items.map((item: BearMdData, index: number) => (
         <li
           key={`bear-midbar-${item.id}`}
-          className={`h-24 flex flex-col cursor-default border-l-2 ${cur === index
+          className={`h-24 flex flex-col cursor-default border-l-2 ${
+            cur === index
               ? "border-red-500 bg-white dark:bg-gray-900"
               : "border-transparent bg-transparent"
-            } hover:(bg-white dark:bg-gray-900)`}
+          } hover:(bg-white dark:bg-gray-900)`}
           onClick={() => setContent(item.id, item.file, index)}
         >
           <div className="h-8 mt-3 hstack">
@@ -186,13 +193,25 @@ const Content = ({ contentID, contentURL }: ContentProps) => {
 };
 
 const Bear = () => {
+  const { language } = useLanguageContext();
   const [state, setState] = useState<BearState>({
     curSidebar: 0,
     curMidbar: 0,
-    midbarList: bear[0].md,
-    contentID: bear[0].md[0].id,
-    contentURL: bear[0].md[0].file
+    midbarList: language === "es" ? bearES[0].md : bearEN[0].md,
+    contentID: language === "es" ? bearES[0].md[0].id : bearEN[0].md[0].id,
+    contentURL: language === "es" ? bearES[0].md[0].file : bearEN[0].md[0].file
   });
+
+  useEffect(() => {
+    const bear = language === "es" ? bearES : bearEN;
+    setState({
+      curSidebar: 0,
+      curMidbar: 0,
+      midbarList: bear[0].md,
+      contentID: bear[0].md[0].id,
+      contentURL: bear[0].md[0].file
+    });
+  }, [language]);
 
   const setMidBar = (items: BearMdData[], index: number) => {
     setState({

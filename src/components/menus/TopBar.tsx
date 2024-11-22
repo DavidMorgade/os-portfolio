@@ -66,6 +66,7 @@ const TopBar = (props: TopBarProps) => {
   const controlCenterBtnRef = useRef<HTMLDivElement>(null);
   const wifiBtnRef = useRef<HTMLDivElement>(null);
   const spotlightBtnRef = useRef<HTMLDivElement>(null);
+  const { language, updateLanguage } = useLanguageContext();
 
   const [state, setState] = useState<TopBarState>({
     date: new Date(),
@@ -111,6 +112,11 @@ const TopBar = (props: TopBarProps) => {
   const setAudioVolume = (value: number): void => {
     setVolume(value);
     controls.volume(value / 100);
+  };
+
+  const toggleLanguage = (): void => {
+    if (language === "en") updateLanguage("es");
+    else updateLanguage("en");
   };
 
   const setSiteBrightness = (value: number): void => {
@@ -165,6 +171,15 @@ const TopBar = (props: TopBarProps) => {
           ref={appleBtnRef}
         >
           <span className="i-ri:apple-fill text-base" />
+        </TopBarItem>
+
+        <TopBarItem
+          className="px-2"
+          forceHover={state.showAppleMenu}
+          onClick={toggleLanguage}
+          ref={appleBtnRef}
+        >
+          <span>{language.toUpperCase()}</span>
         </TopBarItem>
         <TopBarItem
           className="font-semibold px-2"

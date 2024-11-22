@@ -1,6 +1,60 @@
 import type { BearData } from "~/types";
 
-const bear: BearData[] = [
+const bearES: BearData[] = [
+  {
+    id: "profile",
+    title: "Perfil",
+    icon: "i-fa-solid:paw",
+    md: [
+      {
+        id: "about-me",
+        title: "Sobre Mi",
+        file: "markdown/sobre-mi.md",
+        icon: "i-la:dragon",
+        excerpt: "Probablemente soy tu chico si buscas un desarrollador de software..."
+      },
+      {
+        id: "github-stats",
+        title: "Estadísticas de Github",
+        file: "markdown/estadisticas-github.md",
+        icon: "i-icon-park-outline:github",
+        excerpt: "Aquí tienes algunas estadísticas sobre mi cuenta de github..."
+      },
+      {
+        id: "about-site",
+        title: "Sobre Este Sitio",
+        file: "markdown/sobre-sitio.md",
+        icon: "i-octicon:browser",
+        excerpt: "Algo sobre este sitio web personal..."
+      }
+    ]
+  },
+  {
+    id: "project",
+    title: "Proyectos",
+    icon: "i-octicon:repo",
+    md: [
+      {
+        id: "url-shortener",
+        title: "Acortador de URL",
+        file: "https://raw.githubusercontent.com/DavidMorgade/urlshortener/main/readme.md",
+        icon: "i-feather:link",
+        excerpt: "Un simple acortador de URL construido con golang...",
+        link: "https://github.com/DavidMorgade/urlshortener"
+      },
+      {
+        id: "megapoly",
+        title: "Megapoly",
+        file: "https://raw.githubusercontent.com/DavidMorgade/megapoly/main/README.md",
+        icon: "i-feather:package",
+        excerpt: "Un clon de monopoly construido en Java usando Swing...",
+        link: "https://github.com/DavidMorgade/megapoly"
+      }
+    ]
+  }
+];
+
+const bearEN: BearData[] = [
   {
     id: "profile",
     title: "Profile",
@@ -54,4 +108,4 @@ const bear: BearData[] = [
   }
 ];
 
-export default bear;
+export { bearEN, bearES };
