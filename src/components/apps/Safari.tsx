@@ -1,6 +1,7 @@
 import React from "react";
 import { websites, wallpapers } from "~/configs";
 import { checkURL } from "~/utils";
+import { useLanguageContext } from "~/hooks/useLanguage";
 import type { SiteSectionData, SiteData } from "~/types";
 
 interface SafariState {
@@ -67,7 +68,7 @@ const numTracker = Math.floor(Math.random() * 99 + 1);
 
 const NavPage = ({ width, setGoURL }: NavProps) => {
   const dark = useStore((state) => state.dark);
-
+  const { language } = useLanguageContext();
   const grid = width < 640 ? "grid-cols-4" : "grid-cols-8";
   const span = width < 640 ? "col-span-3" : "col-span-7";
 
@@ -88,7 +89,7 @@ const NavPage = ({ width, setGoURL }: NavProps) => {
         {/* Privacy Report */}
         <div className="mx-auto w-full max-w-screen-md" p="t-8 x-4 b-16">
           <div font="medium" text="xl sm:2xl">
-            Privacy Report
+            {language === "en" ? "Privacy Report" : "Reporte de Privacidad"}
           </div>
           <div
             className={`h-16 w-full mt-4 grid ${grid} shadow-md rounded-xl text-sm`}
@@ -99,8 +100,9 @@ const NavPage = ({ width, setGoURL }: NavProps) => {
               <span className="text-xl">{numTracker}</span>
             </div>
             <div className={`col-start-2 ${span} hstack px-2`}>
-              In the last seven days, Safari has prevent {numTracker} tracker from
-              profiling you.
+              {language === "en"
+                ? `In the last seven days, Safari has prevent ${numTracker} tracker from profiling you.`
+                : `En los últimos siete días, Safari ha evitado que ${numTracker} rastreadores te perfilen.`}
             </div>
           </div>
         </div>
@@ -111,6 +113,7 @@ const NavPage = ({ width, setGoURL }: NavProps) => {
 
 const NoInternetPage = () => {
   const dark = useStore((state) => state.dark);
+  const { language } = useLanguageContext();
 
   return (
     <div
@@ -121,9 +124,15 @@ const NoInternetPage = () => {
     >
       <div className="w-full h-full pb-10 backdrop-blur-2xl flex-center text-c-600 bg-c-100/80">
         <div className="text-center">
-          <div className="text-2xl font-bold">You Are Not Connected to the Internet</div>
+          <div className="text-2xl font-bold">
+            {language === "en"
+              ? "You Are Not Connected to the Internet"
+              : "No estas conectado a internet"}
+          </div>
           <div className="pt-4 text-sm">
-            This page can't be displayed because your computer is currently offline.
+            {language === "en"
+              ? "This page can't be displayed because your computer is currently offline."
+              : "Esta página no puede ser mostrada porque tu ordenador se encuenta desconectado de la red"}
           </div>
         </div>
       </div>
