@@ -73,9 +73,8 @@ const Sidebar = ({ cur, setMidBar }: SidebarProps) => {
         {bear.map((item, index) => (
           <li
             key={`bear-sidebar-${item.id}`}
-            className={`pl-6 h-8 hstack cursor-default ${
-              cur === index ? "bg-red-500" : "bg-transparent"
-            } ${cur === index ? "" : "hover:bg-gray-600"}`}
+            className={`pl-6 h-8 hstack cursor-default ${cur === index ? "bg-red-500" : "bg-transparent"
+              } ${cur === index ? "" : "hover:bg-gray-600"}`}
             onClick={() => setMidBar(item.md, index)}
           >
             <span className={item.icon} />
@@ -93,11 +92,10 @@ const Middlebar = ({ items, cur, setContent }: MiddlebarProps) => {
       {items.map((item: BearMdData, index: number) => (
         <li
           key={`bear-midbar-${item.id}`}
-          className={`h-24 flex flex-col cursor-default border-l-2 ${
-            cur === index
+          className={`h-24 flex flex-col cursor-default border-l-2 ${cur === index
               ? "border-red-500 bg-white dark:bg-gray-900"
               : "border-transparent bg-transparent"
-          } hover:(bg-white dark:bg-gray-900)`}
+            } hover:(bg-white dark:bg-gray-900)`}
           onClick={() => setContent(item.id, item.file, index)}
         >
           <div className="h-8 mt-3 hstack">
@@ -156,25 +154,23 @@ const fixImageURL = (text: string, contentURL: string): string => {
 const Content = ({ contentID, contentURL }: ContentProps) => {
   const [storeMd, setStoreMd] = useState<{ [key: string]: string }>({});
   const dark = useStore((state) => state.dark);
+  const { language } = useLanguageContext(); // Get the current language
 
-  const fetchMarkdown = useCallback(
-    (id: string, url: string) => {
-      if (!storeMd[id]) {
-        fetch(url)
-          .then((response) => response.text())
-          .then((text) => {
-            storeMd[id] = fixImageURL(text, url);
-            setStoreMd({ ...storeMd });
-          })
-          .catch((error) => console.error(error));
-      }
-    },
-    [storeMd]
-  );
+  const fetchMarkdown = useCallback((id: string, url: string) => {
+    fetch(url)
+      .then((response) => response.text())
+      .then((text) => {
+        setStoreMd((prevStoreMd) => ({
+          ...prevStoreMd,
+          [id]: fixImageURL(text, url)
+        }));
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   useEffect(() => {
     fetchMarkdown(contentID, contentURL);
-  }, [contentID, contentURL, fetchMarkdown]);
+  }, [contentID, contentURL, fetchMarkdown, language]); // Add language to dependencies
 
   return (
     <div className="markdown w-2/3 mx-auto px-2 py-6 text-c-700 ">
