@@ -173,12 +173,7 @@ const TopBar = (props: TopBarProps) => {
           <span className="i-ri:apple-fill text-base" />
         </TopBarItem>
 
-        <TopBarItem
-          className="px-2"
-          forceHover={state.showAppleMenu}
-          onClick={toggleLanguage}
-          ref={appleBtnRef}
-        >
+        <TopBarItem className="px-2" onClick={toggleLanguage}>
           <span>{language.toUpperCase()}</span>
         </TopBarItem>
         <TopBarItem

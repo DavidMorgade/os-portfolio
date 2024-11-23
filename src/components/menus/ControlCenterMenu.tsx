@@ -43,6 +43,7 @@ export default function ControlCenterMenu({
   btnRef
 }: CCMProps) {
   const controlCenterRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguageContext();
   const { dark, wifi, brightness, bluetooth, airdrop, fullscreen, volume } = useStore(
     (state) => ({
       dark: state.dark,
@@ -104,7 +105,18 @@ export default function ControlCenterMenu({
           </div>
           <div p="t-0.5">
             <div className="font-medium leading-4">AirDrop</div>
-            <div className="cc-text">{airdrop ? "Contacts Only" : "Off"}</div>
+            <div className="cc-text">
+              {airdrop && language === "en"
+                ? "Contacts Only"
+                : language === "en" && !airdrop
+                  ? "Off"
+                  : ""}
+              {airdrop && language === "es"
+                ? "Solo Contactos"
+                : language === "es" && !airdrop
+                  ? "Apagado"
+                  : ""}
+            </div>
           </div>
         </div>
       </div>
@@ -116,12 +128,23 @@ export default function ControlCenterMenu({
             <span className="i-ion:sunny text-base" />
           )}
         </div>
-        <div font-medium>{dark ? "Dark Mode" : "Light Mode"}</div>
+        <div font-medium>
+          {dark && language === "en"
+            ? "Dark Mode"
+            : !dark && language === "en"
+              ? "Light Mode"
+              : ""}
+          {dark && language === "es"
+            ? "Modo Oscuro"
+            : !dark && language === "es"
+              ? "Modo Claro"
+              : ""}
+        </div>
       </div>
       <div className="cc-grid flex-center flex-col">
         <span className="i-bi:brightness-alt-high text-xl" />
         <span text="xs center" font="leading-3.5">
-          Keyboard Brightness
+          {language === "en" ? "Keyboard Brightness" : "Brillo del Teclado"}
         </span>
       </div>
       <div
@@ -134,15 +157,28 @@ export default function ControlCenterMenu({
           <span className="i-bi:fullscreen text-base" />
         )}
         <span text="xs center" font="leading-3.5" m="t-1.5">
-          {fullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+          {language === "en" && !fullscreen
+            ? "Fullscreen"
+            : language === "en" && fullscreen
+              ? "Exit Fullscreen"
+              : ""}
+          {language === "es" && !fullscreen
+            ? "Pantalla Completa"
+            : language === "es" && fullscreen
+              ? "Salir de Pantalla Completa"
+              : ""}
         </span>
       </div>
       <div className="cc-grid col-span-4 px-2.5 py-2 space-y-1 flex flex-col justify-around">
-        <span className="font-medium ml-0.5">Display</span>
+        <span className="font-medium ml-0.5">
+          {language === "en" ? "Display" : "Brillo"}
+        </span>
         <SliderComponent icon="i-ion:sunny" value={brightness} setValue={setBrightness} />
       </div>
       <div className="cc-grid col-span-4 px-2.5 py-2 space-y-1 flex flex-col justify-around">
-        <span className="font-medium ml-0.5">Sound</span>
+        <span className="font-medium ml-0.5">
+          {language === "en" ? "Sound" : "Sonido"}
+        </span>
         <SliderComponent icon="i-ion:volume-high" value={volume} setValue={setVolume} />
       </div>
       <div className="cc-grid col-span-4 hstack space-x-2.5" p="y-2 l-2 r-4">
