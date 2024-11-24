@@ -142,6 +142,7 @@ const NoInternetPage = () => {
 
 const Safari = ({ width }: SafariProps) => {
   const wifi = useStore((state) => state.wifi);
+  const { language } = useLanguageContext();
   const [state, setState] = useState<SafariState>({
     goURL: "",
     currentURL: ""
@@ -201,7 +202,9 @@ const Safari = ({ width }: SafariProps) => {
             onKeyPress={pressURL}
             className="h-6 w-full p-2 rounded font-normal no-outline text-sm text-center text-c-500 bg-c-200"
             border="2 transparent focus:blue-400 dark:focus:blue-500"
-            placeholder="Search or enter website name"
+            placeholder={
+              language === "en" ? "Search or enter website" : "Buscar o ingresar URL"
+            }
           />
         </div>
         <div className={`${hideLast} justify-end space-x-2 px-2`}>

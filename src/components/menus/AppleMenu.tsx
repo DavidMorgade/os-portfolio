@@ -35,7 +35,7 @@ export default function AppleMenu({
         <MenuItem>{language === "en" ? "Recent Items" : "Últimos Objetos"}</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
-        <MenuItem>Force Quit...</MenuItem>
+        <MenuItem>{language === "en" ? "Force Quit..." : "Forzar Salida..."}</MenuItem>
       </MenuItemGroup>
       <MenuItemGroup>
         <MenuItem onClick={sleep}>

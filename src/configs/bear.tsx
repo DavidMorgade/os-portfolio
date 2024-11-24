@@ -49,6 +49,14 @@ const bearES: BearData[] = [
         icon: "i-feather:package",
         excerpt: "Un clon de monopoly construido en Java usando Swing...",
         link: "https://github.com/DavidMorgade/megapoly"
+      },
+      {
+        id: "whatsapp-bot",
+        title: "Bot de Whatsapp",
+        file: "https://raw.githubusercontent.com/DavidMorgade/whatsapp-leles/main/README.md",
+        icon: "i-feather:message-circle",
+        excerpt: "Un bot de whatsapp creado usando Golang",
+        link: "https://github.com/DavidMorgade/whatsapp-leles"
       }
     ]
   }
@@ -103,6 +111,14 @@ const bearEN: BearData[] = [
         icon: "i-feather:package",
         excerpt: "A monopoly clone built in Java using Swing...",
         link: "https://github.com/DavidMorgade/megapoly"
+      },
+      {
+        id: "whatsapp-bot",
+        title: "Whatsapp Bot",
+        file: "https://raw.githubusercontent.com/DavidMorgade/whatsapp-leles/main/README.md",
+        icon: "i-feather:message-circle",
+        excerpt: "A whatsapp bot created using Golang",
+        link: "https://github.com/DavidMorgade/whatsapp-leles"
       }
     ]
   }

@@ -5,9 +5,9 @@ interface LaunchpadProps {
   toggleLaunchpad: (target: boolean) => void;
 }
 
-const placeholderText = "Search";
-
 export default function Launchpad({ show, toggleLaunchpad }: LaunchpadProps) {
+  const { language } = useLanguageContext();
+  const placeholderText = language === "en" ? "Search..." : "Buscar...";
   const dark = useStore((state) => state.dark);
 
   const [searchText, setSearchText] = useState("");
