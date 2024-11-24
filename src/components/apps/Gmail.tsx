@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { FadeLoader } from "react-spinners";
+import axios from "axios";
 
 const Gmail = () => {
   const [from, setFrom] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState({ from: "", subject: "", message: "" });
+  const { language } = useLanguageContext();
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,29 +19,70 @@ const Gmail = () => {
     let valid = true;
     const errors = { from: "", subject: "", message: "" };
 
-    if (!validateEmail(from)) {
-      errors.from = "Please enter a valid email address.";
-      valid = false;
+    if (language === "en") {
+      if (!validateEmail(from)) {
+        errors.from = "Please enter a valid email address.";
+        valid = false;
+      }
+      if (subject.trim() === "") {
+        errors.subject = "Subject cannot be empty.";
+        valid = false;
+      }
+      if (message.trim() === "") {
+        errors.message = "Message cannot be empty.";
+        valid = false;
+      }
     }
-    if (subject.trim() === "") {
-      errors.subject = "Subject cannot be empty.";
-      valid = false;
-    }
-    if (message.trim() === "") {
-      errors.message = "Message cannot be empty.";
-      valid = false;
+
+    if (language === "es") {
+      if (!validateEmail(from)) {
+        errors.from = "Por favor, introduce una dirección de correo electrónico válida.";
+        valid = false;
+      }
+      if (subject.trim() === "") {
+        errors.subject = "El asunto no puede estar vacío.";
+        valid = false;
+      }
+      if (message.trim() === "") {
+        errors.message = "El mensaje no puede estar vacío.";
+        valid = false;
+      }
     }
 
     setErrors(errors);
 
     if (valid) {
       // Handle send logic here
-      console.log("Sending email:", {
-        from,
-        to: "morgadedeveloper@gmail.com",
-        subject,
-        message
-      });
+      setLoading(true);
+      axios
+        .post(
+          "http://localhost:8010/portfolio/sendmail",
+          {
+            name: subject,
+            html: message,
+            from
+          },
+          {
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }
+        )
+        .then(() => {
+          setLoading(false);
+          alert("Message sent successfully!");
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.error(err);
+          alert("An error occurred. Please try again later.");
+        })
+        .finally(() => {
+          setFrom("");
+          setSubject("");
+          setMessage("");
+          setLoading(false);
+        });
     }
   };
 
@@ -45,11 +90,26 @@ const Gmail = () => {
     setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
   };
 
+  if (loading) {
+    return (
+      <div className="flex flex-col h-screen bg-white">
+        <div className="flex flex-col gap-8 h-md justify-center items-center mb-4">
+          <h2 className="text-2xl font-semibold">
+            {language === "en" ? "Sending message..." : "Enviando mensaje..."}
+          </h2>
+          <FadeLoader color="#808080" loading={loading} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex-none p-4 bg-white shadow-lg rounded-t-lg">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Mensaje nuevo</h2>
+          <h2 className="text-lg font-semibold">
+            {language === "en" ? "New message" : "Mensaje nuevo"}
+          </h2>
           <div className="flex space-x-2">
             <button
               className="w-6 h-6 bg-gray-200 rounded-full"
@@ -66,7 +126,9 @@ const Gmail = () => {
           </div>
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">De</label>
+          <label className="block text-sm font-medium text-gray-700">
+            {language === "en" ? "From" : "De"}
+          </label>
           <input
             type="email"
             className={`mt-1 block w-full border ${errors.from ? "border-red-500" : "border-gray-300"
@@ -80,7 +142,9 @@ const Gmail = () => {
           {errors.from && <p className="text-red-500 text-sm">{errors.from}</p>}
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Para</label>
+          <label className="block text-sm font-medium text-gray-700">
+            {language === "en" ? "To" : "Para"}
+          </label>
           <div className="mt-1 flex items-center border border-gray-300 rounded-md shadow-sm p-2 bg-gray-100">
             <div className="flex items-center space-x-2">
               <img
@@ -96,7 +160,9 @@ const Gmail = () => {
           </div>
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">Asunto</label>
+          <label className="block text-sm font-medium text-gray-700">
+            {language === "en" ? "Subject" : "Asunto"}
+          </label>
           <input
             type="text"
             className={`mt-1 block w-full border ${errors.subject ? "border-red-500" : "border-gray-300"} rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
@@ -110,7 +176,9 @@ const Gmail = () => {
         </div>
       </div>
       <div className="flex-grow p-4 bg-white shadow-lg rounded-b-lg max-h-[80vh]">
-        <label className="block text-sm font-medium text-gray-700">Mensaje</label>
+        <label className="block text-sm font-medium text-gray-700">
+          {language === "en" ? "Message" : "Mensaje"}
+        </label>
         <textarea
           className={`mt-1 block w-full h-[8rem] border ${errors.message ? "border-red-500" : "border-gray-300"
             } rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
@@ -127,7 +195,7 @@ const Gmail = () => {
             className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600"
             onClick={handleSend}
           >
-            Enviar
+            {language === "en" ? "Send" : "Enviar"}
           </button>
         </div>
       </div>
