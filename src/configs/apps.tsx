@@ -20,6 +20,16 @@ const apps: AppsData[] = [
     content: <Bear />
   },
   {
+    id: "gmail",
+    title: "Gmail",
+    desktop: true,
+    width: 860,
+    height: 600,
+    y: -40,
+    img: "img/icons/gmail.png",
+    content: <Gmail />
+  },
+  {
     id: "vscode",
     title: "VSCode",
     desktop: true,

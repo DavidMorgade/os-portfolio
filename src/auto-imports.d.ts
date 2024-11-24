@@ -14,6 +14,7 @@ declare global {
   const DockItem: typeof import('./components/dock/DockItem')['default']
   const FaceTime: typeof import('./components/apps/FaceTime')['default']
   const Facetime: typeof import('./components/apps/Facetime')['default']
+  const Gmail: typeof import('./components/apps/Gmail')['default']
   const LanguageProvider: typeof import('./hooks/useLanguage')['LanguageProvider']
   const Launchpad: typeof import('./components/Launchpad')['default']
   const MenuItem: typeof import('./components/menus/base')['MenuItem']

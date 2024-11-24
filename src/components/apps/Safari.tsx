@@ -102,7 +102,7 @@ const NavPage = ({ width, setGoURL }: NavProps) => {
             <div className={`col-start-2 ${span} hstack px-2`}>
               {language === "en"
                 ? `In the last seven days, Safari has prevent ${numTracker} tracker from profiling you.`
-                : `En los últimos siete días, Safari ha evitado que ${numTracker} rastreadores te perfilen.`}
+                : `En los últimos siete días, Safari evitó que ${numTracker} rastreadores te perfilen.`}
             </div>
           </div>
         </div>

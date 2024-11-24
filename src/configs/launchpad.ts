@@ -30,6 +30,12 @@ const launchpadApps: LaunchpadData[] = [
     title: "Mail Server",
     img: "img/icons/launchpad/mail.png",
     link: "https://github.com/DavidMorgade/Nodemailer-Server"
+  },
+  {
+    id: "dev-finder",
+    title: "Dev Finder",
+    img: "img/icons/launchpad/dev-finder.svg",
+    link: "https://github-user-search-app-eta.vercel.app/"
   }
 ];
 
