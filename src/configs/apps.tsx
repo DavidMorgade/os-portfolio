@@ -30,6 +30,16 @@ const apps: AppsData[] = [
     content: <Gmail />
   },
   {
+    id: "openai",
+    title: "AI Assistant",
+    desktop: true,
+    width: 860,
+    height: 600,
+    y: -50,
+    img: "img/icons/openai.png",
+    content: <OpenAI />
+  },
+  {
     id: "vscode",
     title: "VSCode",
     desktop: true,

@@ -1,0 +1,6 @@
+.message {
+  min-width: 200px;
+  /* Ajusta este valor según tus necesidades */
+  max-width: 100%;
+  word-wrap: break-word;
+}
