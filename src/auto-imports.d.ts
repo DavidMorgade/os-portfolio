@@ -57,5 +57,6 @@ declare global {
   const useStore: typeof import('./stores/index')['useStore']
   const useSyncExternalStore: typeof import('react')['useSyncExternalStore']
   const useTransition: typeof import('react')['useTransition']
+  const useTypewriter: typeof import('./hooks/useTypewriter')['useTypewriter']
   const useWindowSize: typeof import('./hooks/useWindowSize')['useWindowSize']
 }

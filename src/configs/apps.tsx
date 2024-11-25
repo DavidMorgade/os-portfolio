@@ -25,7 +25,8 @@ const apps: AppsData[] = [
     desktop: true,
     width: 860,
     height: 600,
-    y: -40,
+    y: -20,
+    x: 20,
     img: "img/icons/gmail.png",
     content: <Gmail />
   },
@@ -35,7 +36,8 @@ const apps: AppsData[] = [
     desktop: true,
     width: 860,
     height: 600,
-    y: -50,
+    y: 0,
+    x: 0,
     img: "img/icons/openai.png",
     content: <OpenAI />
   },
@@ -45,8 +47,8 @@ const apps: AppsData[] = [
     desktop: true,
     width: 900,
     height: 600,
-    x: 80,
-    y: -30,
+    y: 0,
+
     img: "img/icons/vscode.png",
     content: <VSCode />
   },

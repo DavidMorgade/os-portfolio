@@ -8,11 +8,40 @@ interface Message {
 }
 
 const OpenAI: React.FC = () => {
+  const { language } = useLanguageContext();
   const [input, setInput] = useState<string>("");
   const [chatHistory, setChatHistory] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [introMessage, setIntroMessage] = useState<string>("");
+  const [botResponse, setBotResponse] = useState<string>("");
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const introMessageContent = useTypewriter(
+    language === "en"
+      ? "Hello, I am the David's IA assistant, if you need any info about David Morgade, please ask!"
+      : "Hola!, Soy el asistente de David, funciono con inteligencía artificial, si necesitas saber cualquier cosa sobre David Morgade, ¡Pregunta!",
+    30
+  );
+  const botMessageContent = useTypewriter(botResponse, 30);
+
+  useEffect(() => {
+    if (introMessageContent) {
+      const introMessage: Message = {
+        role: "assistant",
+        content: introMessageContent
+      };
+      setChatHistory([introMessage]);
+    }
+  }, [introMessageContent]);
+
+  useEffect(() => {
+    if (botMessageContent) {
+      const botMessage: Message = {
+        role: "assistant",
+        content: botMessageContent
+      };
+      setChatHistory((prevChatHistory) => [...prevChatHistory, botMessage]);
+    }
+  }, [botMessageContent]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -24,15 +53,8 @@ const OpenAI: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/gpt3", {
-        messages: [...chatHistory, newMessage]
-      });
-
-      const botMessage: Message = {
-        role: "assistant",
-        content: response.data.choices[0].message.content
-      };
-      setChatHistory([...chatHistory, newMessage, botMessage]);
+      const response = await axios.post("/api/openai", { prompt: input });
+      setBotResponse(response.data.choices[0].message.content);
     } catch (error) {
       console.error("Error fetching GPT-3 response:", error);
     } finally {
@@ -46,27 +68,14 @@ const OpenAI: React.FC = () => {
     }
   }, [chatHistory]);
 
-  useEffect(() => {
-    const intro = "Hello! I am your AI assistant. How can I help you today?";
-    let index = 0;
-
-    const interval = setInterval(() => {
-      if (index < intro.length) {
-        setIntroMessage((prev) => prev + intro[index]);
-        index++;
-      } else {
-        clearInterval(interval);
-        setChatHistory((prev) => [...prev, { role: "assistant", content: intro }]);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="flex-none p-4 bg-white shadow-lg rounded-t-lg">
-        <h1 className="text-2xl font-bold">AI Assistant</h1>
+        <h1 className="text-2xl font-bold">
+          {language === "en"
+            ? "Virtual Assistant David Morgade"
+            : "Asistente Virtual David Morgade"}
+        </h1>
       </div>
       <div className="h-sm p-4 overflow-auto" ref={chatContainerRef}>
         <div className="flex flex-col space-y-4">
@@ -75,19 +84,14 @@ const OpenAI: React.FC = () => {
               key={index}
               className={`p-2 rounded-lg message block max-w-xs ${
                 message.role === "user"
-                  ? "bg-blue-100 self-end"
-                  : "bg-gray-100 self-start"
+                  ? "bg-blue-300 self-end"
+                  : "bg-gray-300 self-start"
               }`}
               style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
             >
               <p>{message.content}</p>
             </div>
           ))}
-          {introMessage && (
-            <div className="p-2 rounded-lg bg-gray-100 self-start max-w-xs">
-              <p>{introMessage}</p>
-            </div>
-          )}
           {loading && (
             <div className="self-start">
               <PulseLoader color="#000" size="5" />
@@ -102,10 +106,12 @@ const OpenAI: React.FC = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="flex-grow p-4 border border-2 rounded-lg"
-            placeholder="Type your message..."
+            placeholder={
+              language === "en" ? "Type a message..." : "Escribe un mensaje..."
+            }
           />
           <button type="submit" className="p-4 px-10 bg-blue-500 text-white rounded-lg">
-            Send
+            {language === "en" ? "Send" : "Enviar"}
           </button>
         </form>
       </div>
