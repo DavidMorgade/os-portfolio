@@ -34,14 +34,14 @@ const OpenAI: React.FC = () => {
   }, [introMessageContent]);
 
   useEffect(() => {
-    if (botMessageContent) {
+    if (botResponse) {
       const botMessage: Message = {
         role: "assistant",
         content: botMessageContent
       };
       setChatHistory((prevChatHistory) => [...prevChatHistory, botMessage]);
     }
-  }, [botMessageContent]);
+  }, [botResponse]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -53,8 +53,10 @@ const OpenAI: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/openai", { prompt: input });
-      setBotResponse(response.data.choices[0].message.content);
+      const response = await axios.post("http://localhost:8010/portfolio/assistant", {
+        prompt: input
+      });
+      setBotResponse(response.data.response);
     } catch (error) {
       console.error("Error fetching GPT-3 response:", error);
     } finally {
