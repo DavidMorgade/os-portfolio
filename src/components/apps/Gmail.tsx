@@ -6,8 +6,9 @@ const Gmail = () => {
   const [from, setFrom] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({ from: "", subject: "", message: "" });
+  const [emailSent, setEmailSent] = useState(false);
   const { language } = useLanguageContext();
 
   const validateEmail = (email: string) => {
@@ -52,7 +53,6 @@ const Gmail = () => {
     setErrors(errors);
 
     if (valid) {
-      // Handle send logic here
       setLoading(true);
       axios
         .post(
@@ -70,7 +70,7 @@ const Gmail = () => {
         )
         .then(() => {
           setLoading(false);
-          alert("Message sent successfully!");
+          setEmailSent(true);
         })
         .catch((err) => {
           setLoading(false);
@@ -86,8 +86,8 @@ const Gmail = () => {
     }
   };
 
-  const clearError = (field: string) => {
-    setErrors((prevErrors) => ({ ...prevErrors, [field]: "" }));
+  const handleGoBack = () => {
+    setEmailSent(false);
   };
 
   if (loading) {
@@ -98,6 +98,26 @@ const Gmail = () => {
             {language === "en" ? "Sending message..." : "Enviando mensaje..."}
           </h2>
           <FadeLoader color="#808080" loading={loading} />
+        </div>
+      </div>
+    );
+  }
+
+  if (emailSent) {
+    return (
+      <div className="h-screen bg-white ">
+        <div className="flex flex-col h-md bg-white justify-center  items-center">
+          <h2 className="text-2xl font-semibold">
+            {language === "en"
+              ? "Message sent successfully!"
+              : "¡Mensaje enviado con éxito!"}
+          </h2>
+          <button
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600"
+            onClick={handleGoBack}
+          >
+            {language === "en" ? "Go back" : "Volver"}
+          </button>
         </div>
       </div>
     );
@@ -131,8 +151,9 @@ const Gmail = () => {
           </label>
           <input
             type="email"
-            className={`mt-1 block w-full border ${errors.from ? "border-red-500" : "border-gray-300"
-              } rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+            className={`mt-1 block w-full border ${
+              errors.from ? "border-red-500" : "border-gray-300"
+            } rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
             value={from}
             onChange={(e) => {
               setFrom(e.target.value);
@@ -180,8 +201,9 @@ const Gmail = () => {
           {language === "en" ? "Message" : "Mensaje"}
         </label>
         <textarea
-          className={`mt-1 block w-full h-[8rem] border ${errors.message ? "border-red-500" : "border-gray-300"
-            } rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+          className={`mt-1 block w-full h-[8rem] border ${
+            errors.message ? "border-red-500" : "border-gray-300"
+          } rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           value={message}
           resize="none"
           onChange={(e) => {
