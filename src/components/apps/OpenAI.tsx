@@ -53,7 +53,7 @@ const OpenAI: React.FC = () => {
     try {
       const languageResponse =
         language === "en" ? "Answer in English to: " : "Responder en Español a: ";
-      const response = await axios.post("http://localhost:8010/portfolio/assistant", {
+      const response = await axios.post("/portfolio/assistant", {
         prompt: languageResponse + input
       });
       setBotResponse(response.data.response);
@@ -114,7 +114,7 @@ const OpenAI: React.FC = () => {
       <div
         className={`flex-none p-4 rounded-b-lg ${dark ? "bg-gray-800" : "bg-gray-100"}`}
       >
-        <form onSubmit={handleSubmit} className="flex space-x-2">
+        <form onSubmit={handleSubmit} className="flex space-x-2 mb-8">
           <input
             type="text"
             value={input}

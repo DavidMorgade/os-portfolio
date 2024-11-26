@@ -20,6 +20,7 @@ Contacta conmigo a través de:
 
 ## Curriculum Vitae
 
-- Versión Ingles: [English](https://zxh.me/files/cv/en.pdf) 
+- Versión Ingles: [English](http://codigomorga.es/cv/en.pdf) 
 
-- Versión Española: [Español](https://zxh.me/files/cv/es.pdf)
+- Versión Española: [Español](http://codigomorga.es/cv/es.pdf)
+```

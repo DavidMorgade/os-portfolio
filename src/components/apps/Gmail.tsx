@@ -57,9 +57,9 @@ const Gmail = () => {
       setLoading(true);
       axios
         .post(
-          "http://localhost:8010/portfolio/sendmail",
+          "/portfolio/sendmail",
           {
-            name: subject,
+            subject,
             html: message,
             from
           },
@@ -187,12 +187,13 @@ const Gmail = () => {
           {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
         </div>
       </div>
-      <div className="flex-1 p-4 shadow-lg rounded-b-lg max-h-[80vh]">
+      <div className="flex-1 mb-8 p-4  rounded-b-lg max-h-[80vh]">
         <label className="block text-sm font-medium">
           {language === "en" ? "Message" : "Mensaje"}
         </label>
         <textarea
-          className={`mt-1 block w-full h-[70%] border text-black ${errors.message ? "border-red-500" : "border-gray-300"} rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
+          resize="none"
+          className={`mt-1 block w-full h-[60%] border text-black ${errors.message ? "border-red-500" : "border-gray-300"} rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
@@ -200,9 +201,9 @@ const Gmail = () => {
           }}
         />
         {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-        <div className="flex justify-end mt-4">
+        <div className="flex justify-end mt-4 ">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600 active:bg-blue-700 active:shadow-inner transform active:scale-95 transition duration-150 ease-in-out"
             onClick={handleSend}
           >
             {language === "en" ? "Send" : "Enviar"}

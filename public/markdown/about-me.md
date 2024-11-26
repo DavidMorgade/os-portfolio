@@ -20,8 +20,9 @@ Contact me by:
 
 ## Résumé
 
-- English version: [English](https://zxh.me/files/cv/en.pdf) 
+- English version: [English](https://codigomorga.es/cv/en.pdf) 
 
-- Spanish version: [Español](https://zxh.me/files/cv/es.pdf)
+- Spanish version: [Español](http://codigomorga.es/cv/es.pdf)
+```
 
 

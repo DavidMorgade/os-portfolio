@@ -3,3 +3,8 @@
 @import "./component.css";
 @import "./bear.css";
 @import "./typora.css";
+
+
+#root {
+  position: relative;
+}
