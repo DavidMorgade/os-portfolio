@@ -124,7 +124,7 @@ const Gmail = () => {
   }
 
   return (
-    <div className="flex flex-col h-full bg-white">
+    <div className="flex flex-col justify-between h-full bg-white">
       <div className="flex flex-col justify-between p-4 bg-white shadow-lg rounded-t-lg">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">
@@ -182,12 +182,12 @@ const Gmail = () => {
           {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
         </div>
       </div>
-      <div className="flex-grow p-4 bg-white shadow-lg rounded-b-lg max-h-[80vh]">
+      <div className="flex-1 p-4 bg-white shadow-lg rounded-b-lg max-h-[80vh]">
         <label className="block text-sm font-medium text-gray-700">
           {language === "en" ? "Message" : "Mensaje"}
         </label>
         <textarea
-          className={`mt-1 block w-full h-[8rem] border ${
+          className={`mt-1 block w-full h-[70%] border ${
             errors.message ? "border-red-500" : "border-gray-300"
           } rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm`}
           value={message}
