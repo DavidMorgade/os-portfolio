@@ -71,7 +71,7 @@ const OpenAI: React.FC = () => {
   }, [chatHistory]);
 
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div className="flex flex-col h-full bg-white">
       <div className="flex-none p-4 bg-white shadow-lg rounded-t-lg">
         <h1 className="text-2xl font-bold">
           {language === "en"
@@ -79,7 +79,7 @@ const OpenAI: React.FC = () => {
             : "Asistente Virtual David Morgade"}
         </h1>
       </div>
-      <div className="h-sm p-4 overflow-auto" ref={chatContainerRef}>
+      <div className="h-full p-4 overflow-auto" ref={chatContainerRef}>
         <div className="flex flex-col space-y-4">
           {chatHistory.map((message, index) => (
             <div

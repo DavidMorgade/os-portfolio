@@ -92,7 +92,7 @@ const Gmail = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col h-screen bg-white">
+      <div className="flex flex-col h-full bg-white">
         <div className="flex flex-col gap-8 h-md justify-center items-center mb-4">
           <h2 className="text-2xl font-semibold">
             {language === "en" ? "Sending message..." : "Enviando mensaje..."}
@@ -106,7 +106,7 @@ const Gmail = () => {
   if (emailSent) {
     return (
       <div className="h-screen bg-white ">
-        <div className="flex flex-col h-md bg-white justify-center  items-center">
+        <div className="flex flex-col bg-white justify-center  items-center">
           <h2 className="text-2xl font-semibold">
             {language === "en"
               ? "Message sent successfully!"
@@ -124,26 +124,12 @@ const Gmail = () => {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-white">
-      <div className="flex-none p-4 bg-white shadow-lg rounded-t-lg">
+    <div className="flex flex-col h-full bg-white">
+      <div className="flex flex-col justify-between p-4 bg-white shadow-lg rounded-t-lg">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">
             {language === "en" ? "New message" : "Mensaje nuevo"}
           </h2>
-          <div className="flex space-x-2">
-            <button
-              className="w-6 h-6 bg-gray-200 rounded-full"
-              aria-label="Minimize"
-            ></button>
-            <button
-              className="w-6 h-6 bg-gray-200 rounded-full"
-              aria-label="Fullscreen"
-            ></button>
-            <button
-              className="w-6 h-6 bg-gray-200 rounded-full"
-              aria-label="Close"
-            ></button>
-          </div>
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
