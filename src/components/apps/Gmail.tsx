@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { wallpapers } from "~/configs";
 import { FadeLoader } from "react-spinners";
 import axios from "axios";
 
@@ -10,6 +11,7 @@ const Gmail = () => {
   const [errors, setErrors] = useState({ from: "", subject: "", message: "" });
   const [emailSent, setEmailSent] = useState(false);
   const { language } = useLanguageContext();
+  const dark = useStore((state) => state.dark);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -124,8 +126,10 @@ const Gmail = () => {
   }
 
   return (
-    <div className="flex flex-col justify-between h-full bg-white">
-      <div className="flex flex-col justify-between p-4 bg-white shadow-lg rounded-t-lg">
+    <div
+      className={`flex flex-col justify-between h-full ${dark ? "bg-gray" : "bg-white"}`}
+    >
+      <div className={`flex flex-col justify-between p-4 rounded-t-lg `}>
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">
             {language === "en" ? "New message" : "Mensaje nuevo"}
@@ -182,7 +186,7 @@ const Gmail = () => {
           {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
         </div>
       </div>
-      <div className="flex-1 p-4 bg-white shadow-lg rounded-b-lg max-h-[80vh]">
+      <div className="flex-1 p-4 shadow-lg rounded-b-lg max-h-[80vh]">
         <label className="block text-sm font-medium text-gray-700">
           {language === "en" ? "Message" : "Mensaje"}
         </label>

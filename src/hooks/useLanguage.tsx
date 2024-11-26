@@ -22,7 +22,7 @@ export const useLanguageContext = (): LanguageContextProps => {
 const useLanguage = (): [string, (lang: string) => void] => {
   const [language, setLanguage] = useState<string>(() => {
     const savedLanguage = localStorage.getItem("language");
-    return savedLanguage ? savedLanguage : "en";
+    return savedLanguage ? savedLanguage : "es";
   });
 
   useEffect(() => {
