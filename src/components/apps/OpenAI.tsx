@@ -110,14 +110,14 @@ const OpenAI: React.FC = () => {
         </div>
       </div>
       <div
-        className={`flex-none p-4 my-4 rounded-b-lg ${dark ? "bg-gray-800" : "bg-gray-100"}`}
+        className={`flex-none p-4 rounded-b-lg ${dark ? "bg-gray-800" : "bg-gray-100"}`}
       >
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className={`flex-grow p-4 border border-2 rounded-lg ${dark ? "bg-gray-700 text-white" : "bg-white text-black"}`}
+            className={`flex-grow p-4 border border-1 border-gray rounded-lg ${dark ? "bg-gray-700 text-white" : "bg-white text-black"}`}
             placeholder={
               language === "en" ? "Type a message..." : "Escribe un mensaje..."
             }
@@ -125,7 +125,7 @@ const OpenAI: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`p-4 px-10 rounded-lg ${dark ? "bg-blue-500 text-white" : "bg-blue-500 text-white"}`}
+            className={`p-4 px-10 rounded-lg ${dark ? "bg-blue-500 text-white" : "bg-blue-500 text-white"} transition duration-150 ease-in-out transform hover:scale-105 active:scale-95`}
           >
             {language === "en" ? "Send" : "Enviar"}
           </button>
