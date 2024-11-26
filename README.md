@@ -1,12 +1,11 @@
 # playground-macos
 
-My portfolio website simulating macOS's GUI: https://portfolio.zxh.me
+My portfolio website simulating macOS's GUI: https://codigomorga.es/portfolio
 
 Powered by [React](https://reactjs.org/) + [Zustand](https://zustand-demo.pmnd.rs/) + [UnoCSS](https://uno.antfu.me/) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/).
 
 ![light mode](./public/screenshots/light.png)
 ![dark mode](./public/screenshots/dark.png)
-
 
 &nbsp;
 
@@ -30,19 +29,22 @@ Build for production with minification to the `dist` folder:
 pnpm build
 ```
 
+This project uses a Golang backend to provide the API for the assistant and the Gmail app. Feel free to build your own backend.
 
 &nbsp;
 
-## Changelog
+## Changelog (from the original project)
 
 - **Update 2023.06.26**: Improve [FaceTime](https://support.apple.com/en-us/HT208176).
-
 - **Update 2023.06.25**: Add [Typora](https://typora.io/), built on top of [Milkdown](https://milkdown.dev/).
-
 - **Update 2021.12.05**: Simulated the device's actual battery state using [Battery API](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API), displaying 100% charge on [unsupported browsers](https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility).
-
 - **Update 2021.12.05**: Refactored for cleaner code by utilizing functional components and hooks. Refer to [this branch](https://github.com/Renovamen/playground-macos/tree/class-component) for the previous version implemented with class components.
 
+## Fork Changelog
+
+- **Update 2024.11.26**: Added Gmail app to directly send messages to the owner of the portfolio.
+- **Update 2023.11.26**: Integrated OpenAI with assistant's GPT for chatbot interaction.
+- **Update 2023.11.26**: Made fully responsive for mobile devices.
 
 &nbsp;
 
@@ -54,10 +56,21 @@ pnpm build
 - [macOS Icon Gallery](https://www.macosicongallery.com/)
 - [sindresorhus/file-icon-cli](https://github.com/sindresorhus/file-icon-cli)
 - [vivek9patel.github.io](https://github.com/vivek9patel/vivek9patel.github.io)
-
+- [Original Author](https://github.com/Renovamen/playground-macos)
 
 &nbsp;
 
 ## License
 
 [MIT](MIT)
+
+&nbsp;
+
+## Fork Information
+
+This is a fork of the original project that comes with various updates, including:
+- Added Gmail app to directly send messages to the owner of the portfolio.
+- Integrated OpenAI with assistant's GPT for chatbot interaction.
+- Made fully responsive for mobile devices.
+
+This fork was created by DavidMorgade.
