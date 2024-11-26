@@ -20,9 +20,8 @@ const OpenAI: React.FC = () => {
     language === "en"
       ? "Hello, I am the David's IA assistant, if you need any info about David Morgade, please ask!"
       : "Hola!, Soy el asistente de David, funciono con inteligencía artificial, si necesitas saber cualquier cosa sobre David Morgade, ¡Pregunta!",
-    30
+    10
   );
-  const botMessageContent = useTypewriter(botResponse, 30);
 
   useEffect(() => {
     if (introMessageContent) {
@@ -35,13 +34,11 @@ const OpenAI: React.FC = () => {
   }, [introMessageContent]);
 
   useEffect(() => {
-    if (botResponse) {
-      const botMessage: Message = {
-        role: "assistant",
-        content: botMessageContent
-      };
-      setChatHistory((prevChatHistory) => [...prevChatHistory, botMessage]);
-    }
+    const botMessage: Message = {
+      role: "assistant",
+      content: botResponse
+    };
+    setChatHistory((prevChatHistory) => [...prevChatHistory, botMessage]);
   }, [botResponse]);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -72,8 +69,12 @@ const OpenAI: React.FC = () => {
   }, [chatHistory]);
 
   return (
-    <div className={`flex flex-col h-full ${dark ? "bg-gray-900" : "bg-white"}`}>
-      <div className="flex-none p-4 shadow-lg rounded-t-lg">
+    <div
+      className={`flex flex-col h-full ${dark ? "bg-gray-900 text-white" : "bg-white text-black"}`}
+    >
+      <div
+        className={`flex-none p-4 shadow-lg rounded-t-lg ${dark ? "bg-gray-800" : "bg-gray-100"}`}
+      >
         <h1 className="text-2xl font-bold">
           {language === "en"
             ? "Virtual Assistant David Morgade"
@@ -85,10 +86,16 @@ const OpenAI: React.FC = () => {
           {chatHistory.map((message, index) => (
             <div
               key={index}
-              className={`p-2 rounded-lg message block max-w-xs ${
+              className={`p-2 rounded-lg message block  ${
+                message.role === "user" ? "self-end max-w-xs" : " w-full"
+              } ${
                 message.role === "user"
-                  ? "bg-blue-300 self-end"
-                  : "bg-gray-300 self-start"
+                  ? dark
+                    ? "bg-blue-700"
+                    : "bg-blue-300"
+                  : dark
+                    ? "bg-gray-700"
+                    : "bg-gray-300"
               }`}
               style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
             >
@@ -97,23 +104,29 @@ const OpenAI: React.FC = () => {
           ))}
           {loading && (
             <div className="self-start">
-              <PulseLoader color="#000" size="5" />
+              <PulseLoader color={dark ? "#fff" : "#000"} size="5" />
             </div>
           )}
         </div>
       </div>
-      <div className="flex-none p-4 my-4  rounded-b-lg">
+      <div
+        className={`flex-none p-4 my-4 rounded-b-lg ${dark ? "bg-gray-800" : "bg-gray-100"}`}
+      >
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-grow p-4 border border-2 rounded-lg"
+            className={`flex-grow p-4 border border-2 rounded-lg ${dark ? "bg-gray-700 text-white" : "bg-white text-black"}`}
             placeholder={
               language === "en" ? "Type a message..." : "Escribe un mensaje..."
             }
           />
-          <button type="submit" className="p-4 px-10 bg-blue-500 text-white rounded-lg">
+          <button
+            type="submit"
+            disabled={loading}
+            className={`p-4 px-10 rounded-lg ${dark ? "bg-blue-500 text-white" : "bg-blue-500 text-white"}`}
+          >
             {language === "en" ? "Send" : "Enviar"}
           </button>
         </form>
