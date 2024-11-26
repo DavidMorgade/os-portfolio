@@ -36,7 +36,7 @@ const OpenAI: React.FC = () => {
   useEffect(() => {
     const botMessage: Message = {
       role: "assistant",
-      content: botResponse
+      content: botResponse.replace(/【\d+:\d+†[a-zA-Z]+】/g, "")
     };
     setChatHistory((prevChatHistory) => [...prevChatHistory, botMessage]);
   }, [botResponse]);
@@ -51,8 +51,10 @@ const OpenAI: React.FC = () => {
     setLoading(true);
 
     try {
+      const languageResponse =
+        language === "en" ? "Answer in English to: " : "Responder en Español a: ";
       const response = await axios.post("http://localhost:8010/portfolio/assistant", {
-        prompt: input
+        prompt: languageResponse + input
       });
       setBotResponse(response.data.response);
     } catch (error) {
