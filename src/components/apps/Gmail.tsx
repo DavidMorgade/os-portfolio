@@ -105,7 +105,7 @@ const Gmail = () => {
 
   if (emailSent) {
     return (
-      <div className="h-screen bg-white ">
+      <div className="h-full flex flex-col items-center justify-center bg-white ">
         <div className="flex flex-col bg-white justify-center  items-center">
           <h2 className="text-2xl font-semibold">
             {language === "en"
