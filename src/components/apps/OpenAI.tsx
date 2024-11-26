@@ -14,6 +14,7 @@ const OpenAI: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [botResponse, setBotResponse] = useState<string>("");
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const dark = useStore((state) => state.dark);
 
   const introMessageContent = useTypewriter(
     language === "en"
@@ -71,8 +72,8 @@ const OpenAI: React.FC = () => {
   }, [chatHistory]);
 
   return (
-    <div className="flex flex-col h-full bg-white">
-      <div className="flex-none p-4 bg-white shadow-lg rounded-t-lg">
+    <div className={`flex flex-col h-full ${dark ? "bg-gray-900" : "bg-white"}`}>
+      <div className="flex-none p-4 shadow-lg rounded-t-lg">
         <h1 className="text-2xl font-bold">
           {language === "en"
             ? "Virtual Assistant David Morgade"
@@ -101,7 +102,7 @@ const OpenAI: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="flex-none p-4 my-4 bg-white rounded-b-lg">
+      <div className="flex-none p-4 my-4  rounded-b-lg">
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <input
             type="text"
