@@ -83,29 +83,43 @@ const OpenAI: React.FC = () => {
             : "Asistente Virtual David Morgade"}
         </h1>
       </div>
-      <div className="h-full p-4 overflow-auto" ref={chatContainerRef}>
-        <div className="flex flex-col space-y-4">
+      <div className="h-full overflow-auto" ref={chatContainerRef}>
+        <div className="px-4 py-2">
           {chatHistory.map((message, index) => (
-            <div
-              key={index}
-              className={`p-2 rounded-lg message block  ${
-                message.role === "user" ? "self-end max-w-xs" : " w-full"
-              } ${
-                message.role === "user"
-                  ? dark
-                    ? "bg-blue-700"
-                    : "bg-blue-300"
-                  : dark
-                    ? "bg-gray-700"
-                    : "bg-gray-300"
-              }`}
-              style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
-            >
-              <p>{message.content}</p>
+            <div key={index} className="flex flex-col space-y-4">
+              {message.role === "assistant" && (
+                <img
+                  src="img/ui/gptimage.jpeg"
+                  alt="Robot"
+                  className="w-8 h-8 d-block  rounded-full"
+                />
+              )}
+              <div
+                key={index}
+                className={`p-2 my-2 rounded-lg message block  ${
+                  message.role === "user" ? "self-end max-w-xs" : " w-full"
+                } ${
+                  message.role === "user"
+                    ? dark
+                      ? "bg-blue-700"
+                      : "bg-blue-300"
+                    : dark
+                      ? "bg-gray-700"
+                      : "bg-gray-300"
+                }`}
+                style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
+              >
+                <p>{message.content}</p>
+              </div>
             </div>
           ))}
           {loading && (
-            <div className="self-start">
+            <div className="self-start py-2">
+              <img
+                src="img/ui/gptimage.jpeg"
+                alt="Robot"
+                className="w-8 h-8 d-block  rounded-full opacity-50"
+              />
               <PulseLoader color={dark ? "#fff" : "#000"} size="5" />
             </div>
           )}
